@@ -1,0 +1,49 @@
+﻿@*@using AgriEnergy.Data
+@model IEnumerable<UserApp>
+
+@foreach (var user in Model)
+{
+  <div class="card mb-3">
+            <div class="card-header">        
+                User Id: @user.Id <br />
+                First Name: @user.FName <br />
+                Last Name: @user.LName <br />
+        Email: @user.Email <br />
+    </div>
+}
+*@
+@using AgriEnergy.Data
+
+@model IEnumerable<UserApp>
+
+<h1>All Users</h1>
+
+@if (Model.Any())
+{
+    // Loop through users and display user information
+    foreach (var user in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-header">
+                        First Name: @user.FName <br />
+                        Last Name: @user.LName <br />
+            </div>
+            <div class="card-body">
+                        <h5 class="card-title">@user.Email</h5>
+            </div>
+            <div class="card-footer">
+                    <a href="@Url.Action("Edit", "Home", new { id = user.Id })" class="btn btn-primary">Edit</a>
+                <a href="@Url.Action("Delete", "Home", new { id = user.Id })" class="btn btn-danger">Delete</a>
+                </div>
+
+            </div>
+    }
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            No Users Added Yet
+        </div>
+    </div>
+}

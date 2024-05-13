@@ -1,0 +1,21 @@
+﻿@using AgriEnergy.Data
+@model UserApp
+
+<h1>Edit User</h1>
+
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label asp-for="FName">First Name</label>
+        <input asp-for="FName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="LName">Last Name</label>
+        <input asp-for="LName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
